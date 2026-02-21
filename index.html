@@ -33,10 +33,10 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo" style="font-weight: 700; font-size: 1.25rem;">portfolio</a>
-            <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <a href="#home" class="logo">portfolio</a>
+            <div class="d-flex align-center gap-md">
                 <div class="nav-links hide-mobile">
-                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#home" class="nav-link active">Home</a>
                     <a href="#about" class="nav-link">About</a>
                     <a href="#skills" class="nav-link">Skills</a>
                     <a href="#experience" class="nav-link">Experience</a>
@@ -44,31 +44,33 @@
                     <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 <div class="social-links hide-mobile"
-                    style="display: flex; gap: 1rem; border-left: 1px solid var(--color-border); padding-left: 1.5rem; margin-left: 0.5rem;">
+                    style="border-left: 1px solid var(--color-border); padding-left: 1.5rem;">
                     <a href="https://github.com/sheik0203" target="_blank" class="social-icon" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/sheik-abdullahs/" target="_blank" class="social-icon"
                         aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon"></i>
                 </button>
             </div>
-            <!-- Mobile Menu Toggle (Implemented in JS) -->
-            <button class="show-mobile btn-outline" id="menu-toggle" aria-label="Toggle menu">
-                ☰
+            <!-- Mobile Menu Toggle -->
+            <button class="show-mobile theme-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="mobile-menu show-mobile"
-        style="display: none; position: fixed; inset: 0; background: var(--mobile-menu-bg); z-index: 999; padding: 2rem; flex-direction: column; gap: 2rem; align-items: center; justify-content: center;">
+        style="display: none; position: fixed; inset: 0; background: var(--mobile-menu-bg); z-index: 999; padding: 2rem; flex-direction: column; gap: 2rem; align-items: center; justify-content: center; backdrop-filter: blur(20px);">
         <button id="menu-close"
-            style="position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; background: none; border: none; color: var(--color-text-main);">✕</button>
+            style="position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; background: none; border: none; color: var(--color-text-main);">
+            <i class="fas fa-times"></i>
+        </button>
         <a href="#home" class="nav-link mobile-link">Home</a>
         <a href="#about" class="nav-link mobile-link">About</a>
         <a href="#skills" class="nav-link mobile-link">Skills</a>
@@ -82,32 +84,33 @@
             </a>
             <a href="https://www.linkedin.com/in/sheik-abdullahs/" target="_blank" class="social-icon"
                 style="font-size: 1.5rem;" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
-        <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode" style="margin-top: 1rem;">
-            <i class="fas fa-moon"></i>
-        </button>
     </div>
 
     <!-- Hero Section -->
     <section id="home" class="section hero-section">
         <div class="container hero-layout">
             <div class="hero-content fade-in">
-                <p style="color: var(--color-primary); font-weight: 600; margin-bottom: 0.5rem;">Hi, I'm</p>
-                <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem;">Sheik Abdullah S</h1>
-                <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); color: var(--color-text-muted); margin-bottom: 1.5rem;">
+                <p class="text-primary"
+                    style="font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase;">
+                    Hi, I'm</p>
+                <h1 style="margin-bottom: 1rem;">Sheik Abdullah S</h1>
+                <h2 style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
                     Computer Science Undergraduate | Web Developer</h2>
-                <p style="margin-bottom: 2rem; font-size: 1.125rem;">
-                    Focused on building clean, responsive web solutions and solving real-world problems using
+                <p style="margin-bottom: 2.5rem; font-size: 1.25rem;">
+                    Building efficient, scalable web solutions that bridge the gap between complex problems and elegant
                     technology.
                 </p>
                 <div class="d-flex gap-sm">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="assets/resume.pdf" class="btn btn-outline" download>Download Resume</a>
+                    <a href="assets/resume.pdf" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
                 </div>
             </div>
-            <div class="hero-image fade-in delay-200">
+            <div class="hero-image zoom-in">
                 <img src="assets/images/profile-new.png" alt="Sheik Abdullah S - Professional Photo"
                     style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
             </div>
@@ -116,24 +119,20 @@
 
     <!-- About Section -->
     <section id="about" class="section section-alt">
-        <div class="container slide-up">
-            <h2 class="text-center" style="margin-bottom: var(--spacing-md);">About Me</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p style="margin-bottom: 1rem;">
+        <div class="container">
+            <h2 class="text-center slide-up" style="margin-bottom: 3rem;">About Me</h2>
+            <div class="card slide-up delay-100" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p>
                     Motivated B.Tech undergraduate with strong foundational knowledge in web development and database
                     management. Skilled in HTML, CSS, Python, Django, PostgreSQL, and SQL, with practical experience
                     in developing dynamic and responsive web applications. Familiar with backend development, RESTful
                     APIs, and database design principles.
                 </p>
-                <p style="margin-bottom: 1rem;">
+                <p>
                     I demonstrate strong analytical thinking, problem-solving abilities, and a commitment to building
                     efficient, scalable, and secure web solutions. With experience in data-driven decision making from
                     my internship and a hands-on approach to IoT and software development, I am constantly looking for
                     opportunities to learn and grow.
-                </p>
-                <p>
-                    I value teamwork, leadership, and effective communication in every project I undertake. Eager to
-                    contribute technical expertise and grow in a challenging software development environment.
                 </p>
             </div>
         </div>
@@ -141,13 +140,16 @@
 
     <!-- Skills Section -->
     <section id="skills" class="section">
-        <div class="container slide-up">
-            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">Technical Skills</h2>
+        <div class="container">
+            <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Technical Skills</h2>
             <div class="grid grid-3">
                 <!-- Frontend -->
-                <div class="card">
-                    <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Frontend</h3>
-                    <div style="display: flex; flex-wrap: wrap;">
+                <div class="card zoom-in delay-100">
+                    <div class="d-flex align-center gap-sm" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-code text-primary" style="font-size: 1.5rem;"></i>
+                        <h3 style="margin-bottom: 0;">Frontend</h3>
+                    </div>
+                    <div class="d-flex flex-wrap gap-xs">
                         <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
                         <span class="skill-tag">Bootstrap</span>
@@ -156,9 +158,12 @@
                     </div>
                 </div>
                 <!-- Programming & Backend -->
-                <div class="card">
-                    <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Backend & Core</h3>
-                    <div style="display: flex; flex-wrap: wrap;">
+                <div class="card zoom-in delay-200">
+                    <div class="d-flex align-center gap-sm" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-server text-primary" style="font-size: 1.5rem;"></i>
+                        <h3 style="margin-bottom: 0;">Backend & Core</h3>
+                    </div>
+                    <div class="d-flex flex-wrap gap-xs">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">Django (Basic)</span>
                         <span class="skill-tag">SQL</span>
@@ -167,15 +172,17 @@
                     </div>
                 </div>
                 <!-- Tools & Soft Skills -->
-                <div class="card">
-                    <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Tools & Others</h3>
-                    <div style="display: flex; flex-wrap: wrap;">
+                <div class="card zoom-in delay-300">
+                    <div class="d-flex align-center gap-sm" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-tools text-primary" style="font-size: 1.5rem;"></i>
+                        <h3 style="margin-bottom: 0;">Tools & Soft Skills</h3>
+                    </div>
+                    <div class="d-flex flex-wrap gap-xs">
                         <span class="skill-tag">GitHub</span>
                         <span class="skill-tag">Postman</span>
                         <span class="skill-tag">Ngrok</span>
                         <span class="skill-tag">Netlify</span>
                         <span class="skill-tag">Render</span>
-                        <span class="skill-tag">Microsoft Excel</span>
                         <span class="skill-tag">Teamwork</span>
                         <span class="skill-tag">Leadership</span>
                     </div>
@@ -186,22 +193,34 @@
 
     <!-- Experience Section -->
     <section id="experience" class="section section-alt">
-        <div class="container slide-up">
-            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">Experience</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div class="card">
-                    <div class="d-flex justify-between align-center" style="margin-bottom: 0.5rem; flex-wrap: wrap;">
-                        <h3 style="font-size: 1.25rem;">Data Analytics & HR Intern</h3>
-                        <span style="color: var(--color-primary); font-weight: 500;">June 2024</span>
+        <div class="container">
+            <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Professional Experience</h2>
+            <div style="max-width: 850px; margin: 0 auto;">
+                <div class="card slide-up delay-100">
+                    <div class="d-flex justify-between align-center"
+                        style="margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h3 style="margin-bottom: 0.25rem;">Data Analytics & HR Intern</h3>
+                            <p class="text-primary" style="font-weight: 600; margin-bottom: 0;">Tata International
+                                Limited</p>
+                        </div>
+                        <span class="skill-tag" style="margin: 0;">June 2024</span>
                     </div>
-                    <h4 style="color: var(--color-text-muted); margin-bottom: 1rem;">Tata International Limited</h4>
-                    <ul style="list-style: disc; padding-left: 1.5rem; color: var(--color-text-muted);">
-                        <li style="margin-bottom: 0.5rem;">Conducted comprehensive employee attrition analysis to
-                            identify key trends and retention challenges.</li>
-                        <li style="margin-bottom: 0.5rem;">Interpreted complex HR data to provide actionable insights
-                            for management.</li>
-                        <li>Analyzed engagement metrics to suggest improvements in company culture and employee
-                            satisfaction.</li>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fas fa-check-circle text-primary" style="margin-top: 5px;"></i>
+                            <span>Conducted comprehensive employee attrition analysis to identify key trends and
+                                retention challenges.</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                            <i class="fas fa-check-circle text-primary" style="margin-top: 5px;"></i>
+                            <span>Interpreted complex HR data to provide actionable insights for management.</span>
+                        </li>
+                        <li style="display: flex; gap: 1rem;">
+                            <i class="fas fa-check-circle text-primary" style="margin-top: 5px;"></i>
+                            <span>Analyzed engagement metrics to suggest improvements in company culture and employee
+                                satisfaction.</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -210,15 +229,23 @@
 
     <!-- Projects Section -->
     <section id="projects" class="section">
-        <div class="container slide-up">
-            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">Projects</h2>
-            <div class="grid grid-3">
+        <div class="container">
+            <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Featured Projects</h2>
+            <div class="grid grid-2">
                 <!-- Project 1 -->
-                <div class="card project-card d-flex flex-column">
+                <div class="card project-card zoom-in delay-100">
+                    <div class="d-flex justify-between align-center" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-microchip text-primary" style="font-size: 2rem;"></i>
+                        <div class="d-flex gap-sm">
+                            <a href="#" class="social-icon" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Live Demo"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
                     <h3>Object Detection using ESP32-CAM</h3>
-                    <p style="font-size: 0.875rem; flex-grow: 1;">
+                    <p>
                         A real-time object detection system integrating embedded hardware with machine learning for
-                        security applications.
+                        security applications. Optimized for efficient processing on low-power devices.
                     </p>
                     <div class="project-meta">
                         <span class="skill-tag">Python</span>
@@ -226,15 +253,22 @@
                         <span class="skill-tag">OpenCV</span>
                         <span class="skill-tag">ESP32</span>
                     </div>
-
                 </div>
 
                 <!-- Project 2 -->
-                <div class="card project-card d-flex flex-column">
+                <div class="card project-card zoom-in delay-200">
+                    <div class="d-flex justify-between align-center" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-network-wired text-primary" style="font-size: 2rem;"></i>
+                        <div class="d-flex gap-sm">
+                            <a href="#" class="social-icon" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Live Demo"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
                     <h3>IoT Security Management</h3>
-                    <p style="font-size: 0.875rem; flex-grow: 1;">
+                    <p>
                         Secure IoT communication system using the Kaa Platform, featuring MQTT protocol and encrypted
-                        data transmission.
+                        data transmission for critical infrastructure monitoring.
                     </p>
                     <div class="project-meta">
                         <span class="skill-tag">IoT</span>
@@ -242,15 +276,22 @@
                         <span class="skill-tag">MQTT</span>
                         <span class="skill-tag">Security</span>
                     </div>
-
                 </div>
 
                 <!-- Project 3 -->
-                <div class="card project-card d-flex flex-column">
+                <div class="card project-card zoom-in delay-300">
+                    <div class="d-flex justify-between align-center" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-chart-pie text-primary" style="font-size: 2rem;"></i>
+                        <div class="d-flex gap-sm">
+                            <a href="#" class="social-icon" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Live Demo"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
                     <h3>Employee Attrition Analysis</h3>
-                    <p style="font-size: 0.875rem; flex-grow: 1;">
-                        Data-driven project analyzing workforce trends using statistical methods and SQL to predict and
-                        reduce attrition.
+                    <p>
+                        Advanced data analysis pipeline using SQL and statistical modeling to identify key risk factors
+                        for employee churn and provide strategic recommendations.
                     </p>
                     <div class="project-meta">
                         <span class="skill-tag">Data Analysis</span>
@@ -258,24 +299,29 @@
                         <span class="skill-tag">Statistics</span>
                         <span class="skill-tag">Excel</span>
                     </div>
-
                 </div>
 
                 <!-- Project 4: Blood Bridge -->
-                <div class="card project-card d-flex flex-column">
-                    <h3>Blood Bridge – Blood Donation & Nearby Finder Platform</h3>
-                    <p style="font-size: 0.875rem; flex-grow: 1;">
-                        A web-based platform that connects blood donors with recipients, allowing users to find nearby
-                        donors quickly during emergency situations through a simple and user-friendly interface.
+                <div class="card project-card zoom-in delay-400">
+                    <div class="d-flex justify-between align-center" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-tint text-primary" style="font-size: 2rem;"></i>
+                        <div class="d-flex gap-sm">
+                            <a href="#" class="social-icon" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Live Demo"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Blood Bridge Platform</h3>
+                    <p>
+                        A life-saving web-based platform that connects blood donors with recipients in real-time,
+                        featuring geo-location based search for emergency situations.
                     </p>
                     <div class="project-meta">
                         <span class="skill-tag">Django</span>
                         <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
                         <span class="skill-tag">Location-Based Search</span>
+                        <span class="skill-tag">Bootstrap</span>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -283,56 +329,76 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section section-alt">
-        <div class="container slide-up">
-            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">Get In Touch</h2>
-            <div class="grid grid-2" style="max-width: 900px; margin: 0 auto; gap: var(--spacing-xl);">
+        <div class="container">
+            <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Get In Touch</h2>
+            <div class="grid grid-2" style="max-width: 1000px; margin: 0 auto; gap: 4rem;">
                 <!-- Contact Info -->
-                <div>
-                    <h3 style="margin-bottom: 1rem;">Contact Information</h3>
-                    <p style="margin-bottom: 2rem;">
-                        I'm currently looking for internships and full-time opportunities.
+                <div class="slide-up delay-100">
+                    <h3 style="margin-bottom: 1.5rem;">Let's talk!</h3>
+                    <p style="margin-bottom: 2.5rem;">
+                        I'm currently looking for internships and full-time opportunities. If you have a question or
+                        just want to say hi, my inbox is always open!
                     </p>
 
-                    <div style="margin-bottom: 1rem;">
-                        <strong style="display: block; margin-bottom: 0.25rem;">Email</strong>
-                        <a href="mailto:sheikabdul432@gmail.com"
-                            style="color: var(--color-primary);">sheikabdul432@gmail.com</a>
+                    <div class="d-flex align-center gap-sm" style="margin-bottom: 1.5rem;">
+                        <div class="social-icon"
+                            style="width: 50px; height: 50px; background: var(--color-bg); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                            <i class="fas fa-envelope text-primary"></i>
+                        </div>
+                        <div>
+                            <strong
+                                style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-light);">Email</strong>
+                            <a href="mailto:sheikabdul432@gmail.com" class="text-primary"
+                                style="font-weight: 600;">sheikabdul432@gmail.com</a>
+                        </div>
                     </div>
 
-                    <div style="margin-bottom: 1rem;">
-                        <strong style="display: block; margin-bottom: 0.25rem;">Location</strong>
-                        <span style="color: var(--color-text-muted);">Gudalur, Theni, Tamil Nadu, India</span>
+                    <div class="d-flex align-center gap-sm" style="margin-bottom: 1.5rem;">
+                        <div class="social-icon"
+                            style="width: 50px; height: 50px; background: var(--color-bg); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                        </div>
+                        <div>
+                            <strong
+                                style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-light);">Location</strong>
+                            <span style="font-weight: 600;">Theni, Tamil Nadu, India</span>
+                        </div>
                     </div>
 
-                    <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
-                        <a href="https://github.com/sheik0203" target="_blank" class="btn btn-outline">
+                    <div style="display: flex; gap: 1rem; margin-top: 3rem;">
+                        <a href="https://github.com/sheik0203" target="_blank" class="btn btn-outline"
+                            style="padding: 0.6rem 1.2rem; font-size: var(--text-sm);">
                             <i class="fab fa-github"></i> GitHub
                         </a>
-                        <a href="https://www.linkedin.com/in/sheik-abdullahs/" target="_blank" class="btn btn-outline">
-                            <i class="fab fa-linkedin"></i> LinkedIn
+                        <a href="https://www.linkedin.com/in/sheik-abdullahs/" target="_blank" class="btn btn-outline"
+                            style="padding: 0.6rem 1.2rem; font-size: var(--text-sm);">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
                         </a>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
-                <form class="card" id="contact-form">
+                <form class="card slide-up delay-200" id="contact-form">
                     <div class="form-group">
-                        <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name</label>
-                        <input type="text" name="name" id="name" class="form-input" placeholder="Your Name" required>
+                        <label for="name"
+                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm);">Name</label>
+                        <input type="text" name="name" id="name" class="form-input" placeholder="John Doe" required>
                     </div>
                     <div class="form-group">
                         <label for="email"
-                            style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
-                        <input type="email" name="email" id="email" class="form-input" placeholder="Your Email"
+                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm);">Email</label>
+                        <input type="email" name="email" id="email" class="form-input" placeholder="john@example.com"
                             required>
                     </div>
                     <div class="form-group">
                         <label for="message"
-                            style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
-                        <textarea name="message" id="message" rows="4" class="form-textarea" placeholder="Your Message"
-                            required></textarea>
+                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm);">Message</label>
+                        <textarea name="message" id="message" rows="4" class="form-textarea"
+                            placeholder="How can I help you?" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
                 </form>
             </div>
         </div>
@@ -341,18 +407,21 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <p>&copy; 2026 sheikabdullah portfolio. All rights reserved.</p>
-            <div class="footer-social" style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem;">
+            <h2 class="logo" style="margin-bottom: 1.5rem;">portfolio</h2>
+            <div class="footer-social"
+                style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 1.5rem;">
                 <a href="https://github.com/sheik0203" target="_blank" class="social-icon" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/sheik-abdullahs/" target="_blank" class="social-icon"
                     aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
-            <div style="margin-top: 1rem; font-size: 0.875rem;">
-                Built with HTML, CSS, and JavaScript
+            <p style="margin: 0 auto 1rem;">&copy; 2026 Sheik Abdullah S. All rights reserved.</p>
+            <div class="text-muted" style="font-size: 0.875rem;">
+                Designed with <i class="fas fa-heart text-primary" style="font-size: 0.75rem;"></i> and built with
+                modern web technologies
             </div>
         </div>
     </footer>

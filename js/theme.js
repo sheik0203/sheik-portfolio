@@ -3,43 +3,62 @@
  * Persists theme preference in localStorage and handles UI updates
  */
 
-const themeToggle = document.getElementById('theme-toggle');
-const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-const htmlElement = document.documentElement;
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    const bodyElement = document.body;
 
-// Check for saved theme in localStorage or system preference
-const currentTheme = localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    // Check for saved theme in localStorage or system preference
+    const getInitialTheme = () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) return savedTheme;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
 
-// Apply initial theme
-if (currentTheme === 'dark') {
-    htmlElement.setAttribute('data-theme', 'dark');
-    updateToggleIcons('dark');
-}
+    const currentTheme = getInitialTheme();
 
-function updateToggleIcons(theme) {
-    const iconClass = theme === 'dark' ? 'fa-sun' : 'fa-moon';
-    const desktopIcon = themeToggle.querySelector('i');
-    const mobileIcon = themeToggleMobile.querySelector('i');
+    // Apply initial theme
+    if (currentTheme === 'dark') {
+        bodyElement.setAttribute('data-theme', 'dark');
+    } else {
+        bodyElement.removeAttribute('data-theme');
+    }
+    updateToggleIcons(currentTheme);
 
-    desktopIcon.className = `fas ${iconClass}`;
-    mobileIcon.className = `fas ${iconClass}`;
-}
+    function updateToggleIcons(theme) {
+        const iconClass = theme === 'dark' ? 'fa-sun' : 'fa-moon';
 
-function toggleTheme() {
-    const isDark = htmlElement.getAttribute('data-theme') === 'dark';
-    const newTheme = isDark ? 'light' : 'dark';
+        if (themeToggle) {
+            const desktopIcon = themeToggle.querySelector('i');
+            if (desktopIcon) desktopIcon.className = `fas ${iconClass}`;
+        }
 
-    htmlElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateToggleIcons(newTheme);
-}
+        if (themeToggleMobile) {
+            const mobileIcon = themeToggleMobile.querySelector('i');
+            if (mobileIcon) mobileIcon.className = `fas ${iconClass}`;
+        }
+    }
 
-// Event Listeners
-if (themeToggle) {
-    themeToggle.addEventListener('click', toggleTheme);
-}
+    function toggleTheme() {
+        const isDark = bodyElement.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
 
-if (themeToggleMobile) {
-    themeToggleMobile.addEventListener('click', toggleTheme);
-}
+        if (newTheme === 'dark') {
+            bodyElement.setAttribute('data-theme', 'dark');
+        } else {
+            bodyElement.removeAttribute('data-theme');
+        }
+
+        localStorage.setItem('theme', newTheme);
+        updateToggleIcons(newTheme);
+    }
+
+    // Event Listeners
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    if (themeToggleMobile) {
+        themeToggleMobile.addEventListener('click', toggleTheme);
+    }
+});
