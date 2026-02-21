@@ -53,6 +53,9 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
             <!-- Mobile Menu Toggle (Implemented in JS) -->
             <button class="show-mobile btn-outline" id="menu-toggle" aria-label="Toggle menu">
@@ -63,8 +66,9 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="mobile-menu show-mobile"
-        style="display: none; position: fixed; inset: 0; background: white; z-index: 999; padding: 2rem; flex-direction: column; gap: 2rem; align-items: center; justify-content: center;">
-        <button id="menu-close" style="position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem;">✕</button>
+        style="display: none; position: fixed; inset: 0; background: var(--mobile-menu-bg); z-index: 999; padding: 2rem; flex-direction: column; gap: 2rem; align-items: center; justify-content: center;">
+        <button id="menu-close"
+            style="position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; background: none; border: none; color: var(--color-text-main);">✕</button>
         <a href="#home" class="nav-link mobile-link">Home</a>
         <a href="#about" class="nav-link mobile-link">About</a>
         <a href="#skills" class="nav-link mobile-link">Skills</a>
@@ -81,6 +85,9 @@
                 <i class="fab fa-linkedin"></i>
             </a>
         </div>
+        <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode" style="margin-top: 1rem;">
+            <i class="fas fa-moon"></i>
+        </button>
     </div>
 
     <!-- Hero Section -->
@@ -351,6 +358,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="js/theme.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/animations.js"></script>
     <!-- EmailJS SDK -->

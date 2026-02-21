@@ -7,6 +7,7 @@ body {
     background-color: var(--color-bg-body);
     overflow-x: hidden;
     position: relative;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 /* Background Pattern (Optional subtle texture) */
