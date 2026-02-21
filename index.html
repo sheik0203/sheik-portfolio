@@ -433,12 +433,17 @@
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Initialize sounds
+        const successSound = new Audio('assets/sounds/success.mp3.mp3');
+        const errorSound = new Audio('assets/sounds/error.mp3');
+        successSound.volume = 0.3;
+        errorSound.volume = 0.3;
+
         document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
 
             const serviceID = 'service_dp6trtw';
             const templateID = 'template_yxzrm8p';
-            // Passing Public Key as 4th argument for reliability
             const publicKey = '9CZ_iYODMX3EeMo4t';
 
             const btn = this.querySelector('button[type="submit"]');
@@ -447,11 +452,13 @@
 
             emailjs.sendForm(serviceID, templateID, this, publicKey)
                 .then(() => {
+                    successSound.play().catch(e => console.log('Audio blocked:', e));
                     btn.innerText = 'Message Sent!';
                     alert('Message sent successfully!');
                     this.reset();
                     setTimeout(() => btn.innerText = originalText, 3000);
                 }, (err) => {
+                    errorSound.play().catch(e => console.log('Audio blocked:', e));
                     btn.innerText = originalText;
                     alert('Failed to send message per EmailJS. Check console for details.');
                     console.error('EmailJS Error:', JSON.stringify(err));

@@ -39,7 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Audio for click sound
+    const clickSound = new Audio('assets/sounds/mixkit-camera-shutter-click-1133.wav');
+    clickSound.volume = 0.2; // Set low, pleasant volume
+
     function toggleTheme() {
+        // Play click sound
+        clickSound.currentTime = 0; // Reset to start for rapid clicks
+        clickSound.play().catch(err => console.log('Audio play failed:', err));
+
         const isDark = bodyElement.getAttribute('data-theme') === 'dark';
         const newTheme = isDark ? 'light' : 'dark';
 
