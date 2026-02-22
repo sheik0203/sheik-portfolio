@@ -101,7 +101,14 @@
                     style="font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; font-size: var(--text-sm);">
                     Hi, I'm
                 </p>
-                <h1 style="margin-bottom: 1rem; font-size: clamp(2.5rem, 5vw, 3.75rem);">Sheik Abdullah S</h1>
+                <div class="hero-name-row">
+                    <h1 style="margin-bottom: 0; font-size: clamp(2.5rem, 5vw, 3.75rem);">Sheik Abdullah S</h1>
+                    <button id="voice-intro-btn" class="voice-speaker-btn" aria-label="Play voice introduction">
+                        <i class="fas fa-volume-up voice-icon-play"></i>
+                        <i class="fas fa-pause voice-icon-pause"></i>
+                        <span class="speaker-ripple"></span>
+                    </button>
+                </div>
                 <h2 class="shimmer-text"
                     style="margin-bottom: 1.5rem; font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 600;">
                     Computer Science Undergraduate · Web Developer
@@ -117,6 +124,7 @@
                         <i class="fas fa-download"></i> Download Resume
                     </a>
                 </div>
+
             </div>
             <div class="hero-image zoom-in">
                 <img src="assets/images/profile-new.png" alt="Sheik Abdullah S - Professional Photo"
@@ -453,6 +461,7 @@
     <script src="js/theme.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/voice.js"></script>
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
