@@ -9,31 +9,31 @@
     <meta name="keywords" content="Sheik Abdullah S, Web Developer, Computer Science, Portfolio, Python, Django, React">
     <meta name="author" content="Sheik Abdullah S">
 
-    <title>portfolio</title>
+    <title>Sheik Abdullah S — Developer Portfolio</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css?v=2">
-    <link rel="stylesheet" href="css/variables.css?v=2">
-    <link rel="stylesheet" href="css/base.css?v=2">
-    <link rel="stylesheet" href="css/layout.css?v=2">
-    <link rel="stylesheet" href="css/components.css?v=2">
-    <link rel="stylesheet" href="css/animations.css?v=2">
+    <link rel="stylesheet" href="css/reset.css?v=3">
+    <link rel="stylesheet" href="css/variables.css?v=3">
+    <link rel="stylesheet" href="css/base.css?v=3">
+    <link rel="stylesheet" href="css/layout.css?v=3">
+    <link rel="stylesheet" href="css/components.css?v=3">
+    <link rel="stylesheet" href="css/animations.css?v=3">
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/letter-s.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/letter-s.png">
     <link rel="apple-touch-icon" href="assets/images/letter-s.png">
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome (solid icons only for consistency) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Navigation -->
+    <!-- ═══════════════ Navigation ═══════════════ -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">portfolio</a>
+            <a href="#home" class="logo">sheik<span style="color: var(--color-accent);">.</span>dev</a>
             <div class="d-flex align-center gap-md">
                 <div class="nav-links hide-mobile">
                     <a href="#home" class="nav-link active">Home</a>
@@ -44,12 +44,14 @@
                     <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 <div class="social-links hide-mobile"
-                    style="border-left: 1px solid var(--color-border); padding-left: 1.5rem;">
-                    <a href="https://github.com/sheik0203" target="_blank" class="social-icon" aria-label="GitHub">
+                    style="border-left: 1px solid var(--color-border); padding-left: 1.5rem; display: flex; gap: 0.75rem;">
+                    <a href="https://github.com/sheik0203" target="_blank" class="social-icon" aria-label="GitHub"
+                        style="width: 36px; height: 36px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/sheik-abdullahs/" target="_blank" class="social-icon"
-                        aria-label="LinkedIn">
+                        aria-label="LinkedIn"
+                        style="width: 36px; height: 36px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
@@ -64,7 +66,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- ═══════════════ Mobile Menu Overlay ═══════════════ -->
     <div id="mobile-menu" class="mobile-menu show-mobile"
         style="display: none; position: fixed; inset: 0; background: var(--mobile-menu-bg); z-index: 999; padding: 2rem; flex-direction: column; gap: 2rem; align-items: center; justify-content: center; backdrop-filter: blur(20px);">
         <button id="menu-close"
@@ -78,32 +80,38 @@
         <a href="#projects" class="nav-link mobile-link">Projects</a>
         <a href="#contact" class="nav-link mobile-link">Contact</a>
         <div style="display: flex; gap: 2rem; margin-top: 1rem;">
-            <a href="https://github.com/sheik0203" target="_blank" class="social-icon" style="font-size: 1.5rem;"
+            <a href="https://github.com/sheik0203" target="_blank" class="social-icon"
+                style="font-size: 1.5rem; width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--color-border);"
                 aria-label="GitHub">
                 <i class="fab fa-github"></i>
             </a>
             <a href="https://www.linkedin.com/in/sheik-abdullahs/" target="_blank" class="social-icon"
-                style="font-size: 1.5rem;" aria-label="LinkedIn">
+                style="font-size: 1.5rem; width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--color-border);"
+                aria-label="LinkedIn">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ═══════════════ Hero Section ═══════════════ -->
     <section id="home" class="section hero-section">
         <div class="container hero-layout">
             <div class="hero-content fade-in">
                 <p class="text-primary"
-                    style="font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase;">
-                    Hi, I'm</p>
-                <h1 style="margin-bottom: 1rem;">Sheik Abdullah S</h1>
-                <h2 style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                    Computer Science Undergraduate | Web Developer</h2>
-                <p style="margin-bottom: 2.5rem; font-size: 1.25rem;">
-                    Building efficient, scalable web solutions that bridge the gap between complex problems and elegant
-                    technology.
+                    style="font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; font-size: var(--text-sm);">
+                    Hi, I'm
                 </p>
-                <div class="d-flex gap-sm">
+                <h1 style="margin-bottom: 1rem; font-size: clamp(2.5rem, 5vw, 3.75rem);">Sheik Abdullah S</h1>
+                <h2 class="shimmer-text"
+                    style="margin-bottom: 1.5rem; font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 600;">
+                    Computer Science Undergraduate · Web Developer
+                </h2>
+                <p style="margin-bottom: 2.5rem; font-size: 1.15rem; line-height: 1.8;">
+                    Building efficient, scalable web solutions that bridge the gap between
+                    <span class="highlight">complex problems</span> and <span class="highlight">elegant
+                        technology</span>.
+                </p>
+                <div class="d-flex gap-sm flex-wrap">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="assets/resume.pdf" class="btn btn-outline" download>
                         <i class="fas fa-download"></i> Download Resume
@@ -117,19 +125,22 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ═══════════════ About Section ═══════════════ -->
     <section id="about" class="section section-alt">
         <div class="container">
             <h2 class="text-center slide-up" style="margin-bottom: 3rem;">About Me</h2>
             <div class="card slide-up delay-100" style="max-width: 900px; margin: 0 auto; text-align: center;">
                 <p>
-                    Motivated B.Tech undergraduate with strong foundational knowledge in web development and database
-                    management. Skilled in HTML, CSS, Python, Django, PostgreSQL, and SQL, with practical experience
-                    in developing dynamic and responsive web applications. Familiar with backend development, RESTful
-                    APIs, and database design principles.
+                    Motivated B.Tech undergraduate with strong foundational knowledge in
+                    <span class="highlight">web development</span> and
+                    <span class="highlight">database management</span>.
+                    Skilled in HTML, CSS, Python, Django, PostgreSQL, and SQL, with practical experience
+                    in developing dynamic and responsive web applications. Familiar with backend development,
+                    RESTful APIs, and database design principles.
                 </p>
                 <p>
-                    I demonstrate strong analytical thinking, problem-solving abilities, and a commitment to building
+                    I demonstrate strong <span class="highlight">analytical thinking</span>,
+                    problem-solving abilities, and a commitment to building
                     efficient, scalable, and secure web solutions. With experience in data-driven decision making from
                     my internship and a hands-on approach to IoT and software development, I am constantly looking for
                     opportunities to learn and grow.
@@ -138,7 +149,7 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- ═══════════════ Skills Section ═══════════════ -->
     <section id="skills" class="section">
         <div class="container">
             <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Technical Skills</h2>
@@ -157,7 +168,7 @@
                         <span class="skill-tag">Responsive Design</span>
                     </div>
                 </div>
-                <!-- Programming & Backend -->
+                <!-- Backend & Core -->
                 <div class="card zoom-in delay-200">
                     <div class="d-flex align-center gap-sm" style="margin-bottom: 1.5rem;">
                         <i class="fas fa-server text-primary" style="font-size: 1.5rem;"></i>
@@ -191,7 +202,7 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- ═══════════════ Experience Section ═══════════════ -->
     <section id="experience" class="section section-alt">
         <div class="container">
             <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Professional Experience</h2>
@@ -208,16 +219,16 @@
                     </div>
                     <ul style="list-style: none; padding-left: 0;">
                         <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
-                            <i class="fas fa-check-circle text-primary" style="margin-top: 5px;"></i>
+                            <i class="fas fa-check-circle check-icon"></i>
                             <span>Conducted comprehensive employee attrition analysis to identify key trends and
                                 retention challenges.</span>
                         </li>
                         <li style="margin-bottom: 1rem; display: flex; gap: 1rem;">
-                            <i class="fas fa-check-circle text-primary" style="margin-top: 5px;"></i>
+                            <i class="fas fa-check-circle check-icon"></i>
                             <span>Interpreted complex HR data to provide actionable insights for management.</span>
                         </li>
                         <li style="display: flex; gap: 1rem;">
-                            <i class="fas fa-check-circle text-primary" style="margin-top: 5px;"></i>
+                            <i class="fas fa-check-circle check-icon"></i>
                             <span>Analyzed engagement metrics to suggest improvements in company culture and employee
                                 satisfaction.</span>
                         </li>
@@ -227,7 +238,7 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ═══════════════ Projects Section ═══════════════ -->
     <section id="projects" class="section">
         <div class="container">
             <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Featured Projects</h2>
@@ -237,9 +248,12 @@
                     <div class="d-flex justify-between align-center" style="margin-bottom: 1.5rem;">
                         <i class="fas fa-microchip text-primary" style="font-size: 2rem;"></i>
                         <div class="d-flex gap-sm">
-                            <a href="#" class="social-icon" title="View Code"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-icon" title="Live Demo"><i
-                                    class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="social-icon" title="View Code"
+                                style="width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                <i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Live Demo"
+                                style="width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                <i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                     <h3>Object Detection using ESP32-CAM</h3>
@@ -260,9 +274,12 @@
                     <div class="d-flex justify-between align-center" style="margin-bottom: 1.5rem;">
                         <i class="fas fa-network-wired text-primary" style="font-size: 2rem;"></i>
                         <div class="d-flex gap-sm">
-                            <a href="#" class="social-icon" title="View Code"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-icon" title="Live Demo"><i
-                                    class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="social-icon" title="View Code"
+                                style="width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                <i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Live Demo"
+                                style="width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                <i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                     <h3>IoT Security Management</h3>
@@ -283,9 +300,12 @@
                     <div class="d-flex justify-between align-center" style="margin-bottom: 1.5rem;">
                         <i class="fas fa-chart-pie text-primary" style="font-size: 2rem;"></i>
                         <div class="d-flex gap-sm">
-                            <a href="#" class="social-icon" title="View Code"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-icon" title="Live Demo"><i
-                                    class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="social-icon" title="View Code"
+                                style="width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                <i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Live Demo"
+                                style="width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                <i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                     <h3>Employee Attrition Analysis</h3>
@@ -301,14 +321,17 @@
                     </div>
                 </div>
 
-                <!-- Project 4: Blood Bridge -->
+                <!-- Project 4 -->
                 <div class="card project-card zoom-in delay-400">
                     <div class="d-flex justify-between align-center" style="margin-bottom: 1.5rem;">
                         <i class="fas fa-tint text-primary" style="font-size: 2rem;"></i>
                         <div class="d-flex gap-sm">
-                            <a href="#" class="social-icon" title="View Code"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-icon" title="Live Demo"><i
-                                    class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="social-icon" title="View Code"
+                                style="width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                <i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="Live Demo"
+                                style="width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                <i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                     <h3>Blood Bridge Platform</h3>
@@ -327,7 +350,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ═══════════════ Contact Section ═══════════════ -->
     <section id="contact" class="section section-alt">
         <div class="container">
             <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Get In Touch</h2>
@@ -336,14 +359,14 @@
                 <div class="slide-up delay-100">
                     <h3 style="margin-bottom: 1.5rem;">Let's talk!</h3>
                     <p style="margin-bottom: 2.5rem;">
-                        I'm currently looking for internships and full-time opportunities. If you have a question or
+                        I'm currently looking for <span class="highlight">internships</span> and
+                        <span class="highlight">full-time opportunities</span>. If you have a question or
                         just want to say hi, my inbox is always open!
                     </p>
 
                     <div class="d-flex align-center gap-sm" style="margin-bottom: 1.5rem;">
-                        <div class="social-icon"
-                            style="width: 50px; height: 50px; background: var(--color-bg); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-                            <i class="fas fa-envelope text-primary"></i>
+                        <div class="contact-icon-box">
+                            <i class="fas fa-envelope"></i>
                         </div>
                         <div>
                             <strong
@@ -354,9 +377,8 @@
                     </div>
 
                     <div class="d-flex align-center gap-sm" style="margin-bottom: 1.5rem;">
-                        <div class="social-icon"
-                            style="width: 50px; height: 50px; background: var(--color-bg); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-                            <i class="fas fa-map-marker-alt text-primary"></i>
+                        <div class="contact-icon-box">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
                             <strong
@@ -381,18 +403,18 @@
                 <form class="card slide-up delay-200" id="contact-form">
                     <div class="form-group">
                         <label for="name"
-                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm);">Name</label>
+                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm); color: var(--color-text-main);">Name</label>
                         <input type="text" name="name" id="name" class="form-input" placeholder="John Doe" required>
                     </div>
                     <div class="form-group">
                         <label for="email"
-                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm);">Email</label>
+                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm); color: var(--color-text-main);">Email</label>
                         <input type="email" name="email" id="email" class="form-input" placeholder="john@example.com"
                             required>
                     </div>
                     <div class="form-group">
                         <label for="message"
-                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm);">Message</label>
+                            style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: var(--text-sm); color: var(--color-text-main);">Message</label>
                         <textarea name="message" id="message" rows="4" class="form-textarea"
                             placeholder="How can I help you?" required></textarea>
                     </div>
@@ -404,10 +426,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══════════════ Footer ═══════════════ -->
     <footer class="footer">
         <div class="container text-center">
-            <h2 class="logo" style="margin-bottom: 1.5rem;">portfolio</h2>
+            <h2 class="logo" style="margin-bottom: 1.5rem; font-size: 1.75rem;">sheik<span
+                    style="color: var(--color-accent);">.</span>dev</h2>
             <div class="footer-social"
                 style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 1.5rem;">
                 <a href="https://github.com/sheik0203" target="_blank" class="social-icon" aria-label="GitHub">

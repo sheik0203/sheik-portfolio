@@ -1,5 +1,8 @@
-/* Animations */
+/* ============================================
+   ANIMATIONS — Purple Brand
+   ============================================ */
 
+/* ── Keyframes ── */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -34,6 +37,29 @@
     }
 }
 
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ── Animation Classes ── */
 .fade-in {
     opacity: 0;
     animation: fadeIn 1s ease forwards;
@@ -42,7 +68,8 @@
 .slide-up {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transition:
+        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
         transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -54,7 +81,8 @@
 .zoom-in {
     opacity: 0;
     transform: scale(0.95);
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transition:
+        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
         transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -63,7 +91,7 @@
     transform: scale(1);
 }
 
-/* Staggered delays */
+/* ── Staggered Delays ── */
 .delay-100 {
     transition-delay: 100ms;
 }
@@ -82,4 +110,37 @@
 
 .delay-500 {
     transition-delay: 500ms;
+}
+
+/* ── Shimmer text effect for hero subtitle ── */
+.shimmer-text {
+    background: linear-gradient(90deg,
+            var(--color-text-muted) 0%,
+            var(--color-primary) 40%,
+            var(--color-accent) 60%,
+            var(--color-text-muted) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .slide-up,
+    .zoom-in,
+    .fade-in {
+        opacity: 1;
+        transform: none;
+    }
 }

@@ -1,4 +1,6 @@
-/* Layout & Grid Systems */
+/* ============================================
+   LAYOUT & GRID — Purple Brand
+   ============================================ */
 
 /* Grid System */
 .grid {
@@ -14,16 +16,10 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-/* Flex Utilities */
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Responsive Breakpoints */
+/* ── Desktop (≥768px) ── */
 @media (min-width: 768px) {
     .hide-mobile {
-        display: block !important;
+        display: flex !important;
     }
 
     .show-mobile {
@@ -44,17 +40,19 @@
         aspect-ratio: 1;
         overflow: hidden;
         border-radius: var(--radius-lg);
-        border: 1px solid var(--color-border);
-        box-shadow: var(--shadow-lg);
+        border: 2px solid var(--color-border-strong);
+        box-shadow: var(--shadow-lg), var(--shadow-glow);
         transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     }
 
     .hero-image:hover {
         transform: translateY(-5px);
-        box-shadow: var(--shadow-hover);
+        box-shadow: var(--shadow-hover), var(--shadow-glow);
+        border-color: var(--color-primary);
     }
 }
 
+/* ── Mobile (<768px) ── */
 @media (max-width: 767px) {
     .hide-mobile {
         display: none !important;
@@ -78,7 +76,7 @@
         aspect-ratio: 1;
         overflow: hidden;
         border-radius: var(--radius-lg);
-        border: 1px solid var(--color-border);
+        border: 2px solid var(--color-border-strong);
         box-shadow: var(--shadow-md);
     }
 
@@ -86,14 +84,24 @@
         font-size: 2.5rem;
     }
 
-    /* Mobile Menu Specific Styles */
+    /* Mobile Menu Links */
     .mobile-link {
         font-size: 1.25rem;
         padding: 1rem;
+        color: var(--color-text-main);
+        transition: color var(--transition-fast);
+    }
+
+    .mobile-link:hover,
+    .mobile-link:active {
+        color: var(--color-primary);
     }
 
     .mobile-link::after {
         display: none;
-        /* Hide underline in mobile menu */
+    }
+
+    .hero-content .d-flex {
+        justify-content: center;
     }
 }
