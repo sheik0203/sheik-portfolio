@@ -68,7 +68,7 @@
 
     <!-- ═══════════════ Mobile Menu Overlay ═══════════════ -->
     <div id="mobile-menu" class="mobile-menu show-mobile"
-        style="display: none; position: fixed; inset: 0; background: var(--mobile-menu-bg); z-index: 999; padding: 2rem; flex-direction: column; gap: 2rem; align-items: center; justify-content: center; backdrop-filter: blur(20px);">
+        style="display: none; position: fixed; inset: 0; background: var(--mobile-menu-bg); z-index: 999; padding: 2rem; flex-direction: column; gap: 2rem; align-items: center; justify-content: flex-start; overflow-y: auto; backdrop-filter: blur(20px);">
         <button id="menu-close"
             style="position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; background: none; border: none; color: var(--color-text-main);">
             <i class="fas fa-times"></i>
@@ -362,7 +362,7 @@
     <section id="contact" class="section section-alt">
         <div class="container">
             <h2 class="text-center slide-up" style="margin-bottom: 3.5rem;">Get In Touch</h2>
-            <div class="grid grid-2" style="max-width: 1000px; margin: 0 auto; gap: 4rem;">
+            <div class="grid grid-2 gap-lg" style="max-width: 1000px; margin: 0 auto;">
                 <!-- Contact Info -->
                 <div class="slide-up delay-100">
                     <h3 style="margin-bottom: 1.5rem;">Let's talk!</h3>

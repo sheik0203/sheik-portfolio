@@ -10,7 +10,7 @@ const EntranceAnimation = ({ onComplete }) => {
       setIsFinished(true);
       setTimeout(() => {
         onComplete();
-      }, 1000); // Wait for fade out
+      }, 1200); // Match the exit transition duration exactly
     }, 6000);
 
     return () => clearTimeout(timer);
@@ -21,8 +21,9 @@ const EntranceAnimation = ({ onComplete }) => {
       {!isFinished && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
+          exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
+          style={{ willChange: "opacity, transform" }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black overflow-hidden"
         >
           {/* Cinematic Light Sweep */}
@@ -34,7 +35,8 @@ const EntranceAnimation = ({ onComplete }) => {
               ease: [0.45, 0, 0.55, 1],
               delay: 0.5 
             }}
-            className="absolute top-0 bottom-0 w-[60vw] bg-gradient-to-r from-transparent via-purple-600/40 to-transparent blur-[120px] pointer-events-none"
+            style={{ willChange: "transform" }}
+            className="absolute top-0 bottom-0 w-[60vw] bg-gradient-to-r from-transparent via-purple-600/20 to-transparent pointer-events-none"
           />
           
           <motion.div
@@ -45,7 +47,8 @@ const EntranceAnimation = ({ onComplete }) => {
               ease: [0.45, 0, 0.55, 1],
               delay: 0.8
             }}
-            className="absolute top-0 bottom-0 w-[30vw] bg-gradient-to-r from-transparent via-purple-500/60 to-transparent blur-[80px] pointer-events-none"
+            style={{ willChange: "transform" }}
+            className="absolute top-0 bottom-0 w-[30vw] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent pointer-events-none"
           />
 
           {/* Text Content */}
@@ -85,7 +88,7 @@ const EntranceAnimation = ({ onComplete }) => {
           {/* Background Ambient Glow */}
           <motion.div 
             animate={{ 
-              opacity: [0.2, 0.4, 0.2],
+              opacity: [0.3, 0.6, 0.3],
               scale: [1, 1.1, 1]
             }}
             transition={{ 
@@ -93,11 +96,12 @@ const EntranceAnimation = ({ onComplete }) => {
               repeat: Infinity,
               ease: "linear" 
             }}
-            className="absolute -bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none"
+            style={{ willChange: "opacity, transform" }}
+            className="absolute -bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(124,58,237,0.15)_0%,transparent_70%)] rounded-full pointer-events-none"
           />
           <motion.div 
             animate={{ 
-              opacity: [0.1, 0.3, 0.1],
+              opacity: [0.2, 0.5, 0.2],
               scale: [1, 1.2, 1]
             }}
             transition={{ 
@@ -106,7 +110,8 @@ const EntranceAnimation = ({ onComplete }) => {
               ease: "linear",
               delay: 2
             }}
-            className="absolute -top-1/4 -left-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[150px] pointer-events-none"
+            style={{ willChange: "opacity, transform" }}
+            className="absolute -top-1/4 -left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,transparent_70%)] rounded-full pointer-events-none"
           />
         </motion.div>
       )}
