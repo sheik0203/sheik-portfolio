@@ -1,0 +1,196 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* ── Selection ── */
+::selection {
+    background-color: var(--color-primary-glow);
+    color: var(--color-primary-hover);
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-bg-body);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+/* ── Body ── */
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text-main);
+    background-color: var(--color-bg-body);
+    overflow-x: hidden;
+    position: relative;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Subtle dot-grid pattern with purple tint */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 1.5px 1.5px, var(--color-border) 1px, transparent 0);
+    background-size: 36px 36px;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ── Headings ── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+}
+
+/* Section headings get the brand accent */
+.section>.container>h2 {
+    color: var(--color-primary);
+}
+
+/* ── Paragraphs ── */
+p {
+    color: var(--color-text-muted);
+    font-weight: 400;
+    max-width: 70ch;
+    margin-bottom: 1.5rem;
+}
+
+/* ── Links — always purple, never default blue ── */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+a.text-link,
+.content a {
+    color: var(--color-primary);
+    text-decoration-skip-ink: auto;
+}
+
+a.text-link:hover,
+.content a:hover {
+    color: var(--color-primary-hover);
+    box-shadow: 0 2px 0 var(--color-primary);
+}
+
+/* ── Utilities ── */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-alt {
+    background-color: var(--color-bg-alt);
+    position: relative;
+    overflow: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    color: var(--color-primary) !important;
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.text-accent {
+    color: var(--color-accent);
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-xs {
+    gap: 0.5rem;
+}
+
+.gap-sm {
+    gap: 1rem;
+}
+
+.gap-md {
+    gap: 2rem;
+}
+
+.gap-lg {
+    gap: 4rem;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ── Highlighted keyword text ── */
+.highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+}
