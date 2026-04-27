@@ -27,6 +27,10 @@
 }
 
 /* ── Body ── */
+html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
     font-family: var(--font-body);
     font-size: var(--text-base);
@@ -35,7 +39,7 @@ body {
     background-color: var(--color-bg-body);
     overflow-x: hidden;
     position: relative;
-    transition: background-color var(--transition-normal), color var(--transition-normal);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Subtle dot-grid pattern with purple tint */

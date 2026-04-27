@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-    const bodyElement = document.body;
+    const bodyElement = document.documentElement;
 
     // Check for saved theme in localStorage or default to dark
     const getInitialTheme = () => {
