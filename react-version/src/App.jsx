@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import EntranceAnimation from './components/EntranceAnimation';
 
@@ -13,14 +13,16 @@ function App() {
 
   useEffect(() => {
     const root = window.document.documentElement;
+    // Set theme without causing layout shifts
     if (theme === 'dark') {
       root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
     } else {
       root.classList.remove('dark');
+      root.removeAttribute('data-theme');
     }
     localStorage.setItem('theme', theme);
 
-    // Sync theme if changed from elsewhere (like iframe or other tabs)
     const handleStorageChange = (e) => {
       if (e.key === 'theme') {
         setTheme(e.newValue || 'dark');
@@ -30,24 +32,30 @@ function App() {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, [theme]);
 
+  // Memoize iframe to prevent reloads during theme changes or re-renders
+  const memoizedPortfolio = useMemo(() => (
+    <iframe 
+      src="/portfolio.html" 
+      className="w-full h-full border-none" 
+      title="Sheik Abdullah Portfolio"
+      loading="eager"
+    />
+  ), []);
+
   return (
-    <div className="min-h-screen bg-white dark:bg-black font-sans selection:bg-purple-500/30 transition-colors duration-300">
+    <div className="min-h-[100dvh] bg-white dark:bg-[#0c0a14] font-sans selection:bg-purple-500/30 transition-colors duration-300 ease-in-out">
       <AnimatePresence mode="wait">
         {showAnimation ? (
           <EntranceAnimation key="entrance" onComplete={() => setShowAnimation(false)} />
         ) : (
           <motion.div
-            key="portfolio"
+            key="portfolio-container"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="w-full h-screen overflow-hidden"
+            transition={{ duration: 0.5 }}
+            className="w-full h-[100dvh] overflow-hidden"
           >
-            <iframe 
-              src="/portfolio.html" 
-              className="w-full h-full border-none" 
-              title="Sheik Abdullah Portfolio"
-            />
+            {memoizedPortfolio}
           </motion.div>
         )}
       </AnimatePresence>
