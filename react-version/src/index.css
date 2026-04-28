@@ -4,13 +4,20 @@
 
 @layer base {
   :root {
-    background-color: #000000;
+    background-color: white;
+    color: black;
+  }
+
+  :root.dark {
+    background-color: #0c0a14;
     color: white;
   }
 
   body {
     margin: 0;
     overflow-x: hidden;
-    background-color: #000000;
+    background-color: inherit;
+    color: inherit;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }

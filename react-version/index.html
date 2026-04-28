@@ -9,13 +9,24 @@
       // Initialize theme before React loads to prevent flicker
       (function() {
         try {
+          const root = document.documentElement;
+          const applyTheme = (t) => {
+            if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+              root.classList.add('dark');
+              root.setAttribute('data-theme', 'dark');
+            } else {
+              root.classList.remove('dark');
+              root.removeAttribute('data-theme');
+            }
+          };
+          
           const savedTheme = localStorage.getItem('theme');
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
+          applyTheme(savedTheme);
+
+          // Listen for changes from other tabs/iframes instantly
+          window.addEventListener('storage', (e) => {
+            if (e.key === 'theme') applyTheme(e.newValue);
+          });
         } catch (e) {}
       })();
     </script>
