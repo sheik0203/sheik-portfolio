@@ -5,6 +5,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/letter-s.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sheik Abdullah | Portfolio</title>
+    <script>
+      // Initialize theme before React loads to prevent flicker
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

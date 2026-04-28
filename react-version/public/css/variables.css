@@ -88,7 +88,7 @@
 /* ============================================
    DARK MODE
    ============================================ */
-[data-theme="dark"] {
+[data-theme="dark"], .dark {
     --color-bg-body: #0c0a14;
     --color-bg: #13111d;
     --color-bg-alt: #1a1726;

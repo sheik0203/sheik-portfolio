@@ -3,70 +3,87 @@
  * Persists theme preference in localStorage and handles UI updates
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+(function() {
+    const root = document.documentElement;
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-    const bodyElement = document.documentElement;
 
-    // Check for saved theme in localStorage or default to dark
-    const getInitialTheme = () => {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) return savedTheme;
-        return 'dark'; // Changed to default dark theme
-    };
+    const getSavedTheme = () => localStorage.getItem('theme');
+    const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-    const currentTheme = getInitialTheme();
-
-    // Apply initial theme
-    if (currentTheme === 'dark') {
-        bodyElement.setAttribute('data-theme', 'dark');
-    } else {
-        bodyElement.removeAttribute('data-theme');
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            root.classList.add('dark');
+            root.setAttribute('data-theme', 'dark');
+        } else {
+            root.classList.remove('dark');
+            root.removeAttribute('data-theme');
+        }
+        updateToggleIcons(theme);
     }
-    updateToggleIcons(currentTheme);
 
     function updateToggleIcons(theme) {
         const iconClass = theme === 'dark' ? 'fa-sun' : 'fa-moon';
+        
+        // Find both desktop and mobile toggles
+        const toggles = [
+            document.getElementById('theme-toggle'),
+            document.getElementById('theme-toggle-mobile')
+        ];
 
-        if (themeToggle) {
-            const desktopIcon = themeToggle.querySelector('i');
-            if (desktopIcon) desktopIcon.className = `fas ${iconClass}`;
-        }
-
-        if (themeToggleMobile) {
-            const mobileIcon = themeToggleMobile.querySelector('i');
-            if (mobileIcon) mobileIcon.className = `fas ${iconClass}`;
-        }
+        toggles.forEach(toggle => {
+            if (toggle) {
+                const icon = toggle.querySelector('i');
+                if (icon) icon.className = `fas ${iconClass}`;
+            }
+        });
     }
 
     // Audio for click sound
     const clickSound = new Audio('assets/sounds/mixkit-camera-shutter-click-1133.wav');
-    clickSound.volume = 0.2; // Set low, pleasant volume
+    clickSound.volume = 0.1;
 
     function toggleTheme() {
         // Play click sound
-        clickSound.currentTime = 0; // Reset to start for rapid clicks
-        clickSound.play().catch(err => console.log('Audio play failed:', err));
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {});
 
-        const isDark = bodyElement.getAttribute('data-theme') === 'dark';
-        const newTheme = isDark ? 'light' : 'dark';
-
-        if (newTheme === 'dark') {
-            bodyElement.setAttribute('data-theme', 'dark');
-        } else {
-            bodyElement.removeAttribute('data-theme');
-        }
+        const currentTheme = getSavedTheme() || (root.classList.contains('dark') ? 'dark' : 'light');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
         localStorage.setItem('theme', newTheme);
-        updateToggleIcons(newTheme);
+        applyTheme(newTheme);
     }
+
+    // Initialize
+    const initialTheme = getSavedTheme() || getSystemTheme();
+    applyTheme(initialTheme);
 
     // Event Listeners
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggles = [
+            document.getElementById('theme-toggle'),
+            document.getElementById('theme-toggle-mobile')
+        ];
 
-    if (themeToggleMobile) {
-        themeToggleMobile.addEventListener('click', toggleTheme);
-    }
-});
+        toggles.forEach(toggle => {
+            if (toggle) toggle.addEventListener('click', toggleTheme);
+        });
+        
+        updateToggleIcons(initialTheme);
+    });
+
+    // Listen for changes from other tabs/parent
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'theme') {
+            applyTheme(e.newValue || 'dark');
+        }
+    });
+
+    // Listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!getSavedTheme()) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+})();
