@@ -18,6 +18,6 @@
     overflow-x: hidden;
     background-color: inherit;
     color: inherit;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   }
 }

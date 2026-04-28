@@ -39,15 +39,7 @@
         });
     }
 
-    // Audio for click sound
-    const clickSound = new Audio('assets/sounds/mixkit-camera-shutter-click-1133.wav');
-    clickSound.volume = 0.1;
-
     function toggleTheme() {
-        // Play click sound
-        clickSound.currentTime = 0;
-        clickSound.play().catch(() => {});
-
         const currentTheme = getSavedTheme() || (root.classList.contains('dark') ? 'dark' : 'light');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
