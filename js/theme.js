@@ -3,7 +3,7 @@
  * Persists theme preference in localStorage and handles UI updates
  */
 
-(function() {
+(function () {
     const root = document.documentElement;
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
@@ -24,7 +24,7 @@
 
     function updateToggleIcons(theme) {
         const iconClass = theme === 'dark' ? 'fa-sun' : 'fa-moon';
-        
+
         // Find both desktop and mobile toggles
         const toggles = [
             document.getElementById('theme-toggle'),
@@ -46,7 +46,7 @@
     function toggleTheme() {
         // Play click sound
         clickSound.currentTime = 0;
-        clickSound.play().catch(() => {});
+        clickSound.play().catch(() => { });
 
         const currentTheme = getSavedTheme() || (root.classList.contains('dark') ? 'dark' : 'light');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -69,7 +69,7 @@
         toggles.forEach(toggle => {
             if (toggle) toggle.addEventListener('click', toggleTheme);
         });
-        
+
         updateToggleIcons(initialTheme);
     });
 
