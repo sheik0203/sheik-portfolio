@@ -1,5 +1,5 @@
 /* ============================================
-   ANIMATIONS — Purple Brand
+   ANIMATIONS — Monochrome Motion
    ============================================ */
 
 /* ── Keyframes ── */
@@ -112,18 +112,12 @@
     transition-delay: 500ms;
 }
 
-/* ── Shimmer text effect for hero subtitle ── */
+/* ── Subtle text motion for hero subtitle ── */
 .shimmer-text {
-    background: linear-gradient(90deg,
-            var(--color-text-muted) 0%,
-            var(--color-primary) 40%,
-            var(--color-accent) 60%,
-            var(--color-text-muted) 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 4s linear infinite;
+    color: var(--color-text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    animation: fadeIn 1.4s ease-in-out;
 }
 
 /* ── Reduced motion ── */

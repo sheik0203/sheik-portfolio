@@ -5,18 +5,17 @@ import EntranceAnimation from './components/EntranceAnimation';
 function App() {
   const [showAnimation, setShowAnimation] = useState(true);
 
-  // Memoize iframe to prevent reloads during re-renders
   const memoizedPortfolio = useMemo(() => (
-    <iframe 
-      src="/portfolio.html" 
-      className="w-full h-full border-none" 
+    <iframe
+      src="/portfolio.html"
+      className="h-full w-full border-none"
       title="Sheik Abdullah Portfolio"
       loading="eager"
     />
   ), []);
 
   return (
-    <div className="min-h-[100dvh] font-sans selection:bg-purple-500/30">
+    <div className="min-h-[100dvh] font-sans selection:bg-neutral-500/30">
       <AnimatePresence mode="wait">
         {showAnimation ? (
           <EntranceAnimation key="entrance" onComplete={() => setShowAnimation(false)} />
@@ -26,7 +25,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-full h-[100dvh] overflow-hidden"
+            className="h-[100dvh] w-full overflow-hidden"
           >
             {memoizedPortfolio}
           </motion.div>

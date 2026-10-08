@@ -5,13 +5,12 @@ const EntranceAnimation = ({ onComplete }) => {
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
-    // Total duration of the animation before transition
     const timer = setTimeout(() => {
       setIsFinished(true);
       setTimeout(() => {
         onComplete();
-      }, 1200); // Match the exit transition duration exactly
-    }, 6000);
+      }, 1200);
+    }, 3600);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -21,97 +20,51 @@ const EntranceAnimation = ({ onComplete }) => {
       {!isFinished && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          style={{ willChange: "opacity, transform" }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black overflow-hidden"
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{ duration: 1, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-black"
         >
-          {/* Cinematic Light Sweep */}
           <motion.div
-            initial={{ x: '-150%', skewX: -20 }}
-            animate={{ x: '150%' }}
-            transition={{ 
-              duration: 4, 
-              ease: [0.45, 0, 0.55, 1],
-              delay: 0.5 
-            }}
-            style={{ willChange: "transform" }}
-            className="absolute top-0 bottom-0 w-[60vw] bg-gradient-to-r from-transparent via-purple-600/20 to-transparent pointer-events-none"
-          />
-          
-          <motion.div
-            initial={{ x: '-150%', skewX: -20 }}
-            animate={{ x: '150%' }}
-            transition={{ 
-              duration: 3.5, 
-              ease: [0.45, 0, 0.55, 1],
-              delay: 0.8
-            }}
-            style={{ willChange: "transform" }}
-            className="absolute top-0 bottom-0 w-[30vw] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent pointer-events-none"
+            initial={{ x: '-120%', opacity: 0 }}
+            animate={{ x: '120%', opacity: [0.1, 0.3, 0.1] }}
+            transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="absolute top-0 bottom-0 w-[45vw] bg-white/10"
           />
 
-          {/* Text Content */}
-          <div className="relative z-10 text-center px-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.5 }}
-              className="text-purple-500 text-lg md:text-xl font-medium tracking-[0.2em] mb-4 uppercase"
-            >
-              Hi, I'm Sheik Abdullah
-            </motion.h2>
+          <div className="relative z-10 px-4 text-center">
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mx-auto mb-6 h-px w-20 origin-center bg-white/35"
+            />
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 2 }}
-              className="text-white text-4xl md:text-7xl font-bold tracking-tight mb-6"
+              transition={{ duration: 1, delay: 0.8 }}
+              className="text-4xl font-bold uppercase tracking-[0.18em] text-white md:text-6xl lg:text-7xl"
             >
-              Full Stack Developer
+              SHEIK ABDULLAH S
             </motion.h1>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 3 }}
-              className="flex items-center justify-center gap-4"
-            >
-              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-purple-600" />
-              <p className="text-gray-400 text-sm md:text-base tracking-[0.1em]">
-                Welcome to my portfolio
-              </p>
-              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-purple-600" />
-            </motion.div>
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mx-auto mt-6 h-px w-20 origin-center bg-white/35"
+            />
           </div>
 
-          {/* Background Ambient Glow */}
-          <motion.div 
-            animate={{ 
-              opacity: [0.3, 0.6, 0.3],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ 
-              duration: 8, 
-              repeat: Infinity,
-              ease: "linear" 
-            }}
-            style={{ willChange: "opacity, transform" }}
-            className="absolute -bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(124,58,237,0.15)_0%,transparent_70%)] rounded-full pointer-events-none"
+          <motion.div
+            animate={{ opacity: [0.18, 0.38, 0.18], scale: [1, 1.12, 1] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+            className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/5 blur-3xl"
           />
-          <motion.div 
-            animate={{ 
-              opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ 
-              duration: 10, 
-              repeat: Infinity,
-              ease: "linear",
-              delay: 2
-            }}
-            style={{ willChange: "opacity, transform" }}
-            className="absolute -top-1/4 -left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,transparent_70%)] rounded-full pointer-events-none"
+          <motion.div
+            animate={{ opacity: [0.15, 0.3, 0.15], scale: [1, 1.2, 1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'linear', delay: 1.6 }}
+            className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white/5 blur-3xl"
           />
         </motion.div>
       )}
